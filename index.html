@@ -1,241 +1,262 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metodologia OPEE - Transformando o Futuro</title>
-    
-    <!-- CSS Libraries -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.6/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
-    
-    <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="fullpage">
-        <!-- Header Section -->
-        <header class="section fp-auto-height">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-headroom>
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
-                        <img src="opee-logo.png" alt="OPEE Logo" height="30">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#como-funciona">Como Funciona</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#resultados">Resultados</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-                        </ul>
-                    </div>
-                    <div class="d-flex">
-                        <button class="btn btn-outline-success me-2" id="cta-button">Saiba Mais</button>
-                        <div class="social-icons">
-                            <a href="#" class="me-2"><i class="fab fa-facebook"></i></a>
-                            <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="me-2"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </header>
+    <div id="particles-js"></div>
 
-        <!-- Apresentação Section -->
-        <section class="section" id="apresentacao">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <h1 class="display-4 mb-4" data-aos="fade-up">Transformando o Futuro com a Metodologia OPEE</h1>
-                        <p class="lead mb-4" data-aos="fade-up" data-aos-delay="200">
-                            A metodologia OPEE é uma abordagem inovadora que visa desenvolver habilidades essenciais para o sucesso pessoal e profissional dos jovens, preparando-os para os desafios do futuro.
-                        </p>
-                        <div class="icons-container" data-aos="fade-up" data-aos-delay="400">
-                            <i class="fas fa-brain fa-3x me-3"></i>
-                            <i class="fas fa-chart-line fa-3x me-3"></i>
-                            <i class="fas fa-users fa-3x"></i>
-                        </div>
+    <header class="header" data-headroom>
+        <nav class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <img src="opee-logo.png" alt="Logo OPEE" class="w-24">
+            <div class="hidden md:flex space-x-4">
+                <a href="#sobre" class="text-white hover:text-green-300">Sobre</a>
+                <a href="#como-funciona" class="text-white hover:text-green-300">Como Funciona</a>
+                <a href="#resultados" class="text-white hover:text-green-300">Resultados</a>
+                <a href="#contato" class="text-white hover:text-green-300">Contato</a>
+            </div>
+            <button class="md:hidden text-white" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="hidden md:flex space-x-2">
+                <a href="#" class="text-white hover:text-green-300"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white hover:text-green-300"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white hover:text-green-300"><i class="fab fa-twitter"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="apresentacao" class="min-h-screen flex items-center relative">
+            <div class="container mx-auto px-4 z-10">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 animate__animated animate__fadeInDown">
+                    Transformando o Futuro com a Metodologia OPEE
+                </h1>
+                <p class="text-xl text-white mb-8 animate__animated animate__fadeInUp">
+                    A metodologia OPEE é uma abordagem inovadora que visa desenvolver habilidades essenciais para o sucesso pessoal e profissional dos jovens, preparando-os para os desafios do século XXI.
+                </p>
+                <div class="flex space-x-8 mb-8">
+                    <div class="text-center">
+                        <i class="fas fa-brain text-4xl text-white mb-2"></i>
+                        <p class="text-white">Autoconhecimento</p>
                     </div>
-                    <div class="col-md-6">
-                        <img src="jovens-educa.png" alt="Jovens em atividades educacionais" class="img-fluid rounded" data-aos="zoom-in">
+                    <div class="text-center">
+                        <i class="fas fa-road text-4xl text-white mb-2"></i>
+                        <p class="text-white">Planejamento de Carreira</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-cogs text-4xl text-white mb-2"></i>
+                        <p class="text-white">Desenvolvimento de Habilidades</p>
                     </div>
                 </div>
+                <a href="#saiba-mais" class="btn btn-large waves-effect waves-light green darken-2 hvr-grow">
+                    Saiba Mais
+                </a>
+            </div>
+            <div class="absolute inset-0 z-0">
+                <img src="jovens-educa.png" alt="Jovens em atividades educacionais" class="w-full h-full object-cover opacity-50">
             </div>
         </section>
 
-        <!-- Benefícios e Diferenciais Section -->
-        <section class="section" id="beneficios">
-            <div class="container">
-                <h2 class="text-center mb-5" data-aos="fade-up">Benefícios e Diferenciais</h2>
-                <div class="row">
-                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card h-100 hvr-grow">
-                            <div class="card-body">
-                                <h5 class="card-title">Autoconhecimento</h5>
-                                <p class="card-text">Desenvolva uma compreensão profunda de si mesmo, suas habilidades e potenciais.</p>
-                            </div>
-                        </div>
+        <section id="beneficios" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">Benefícios e Diferenciais</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card p-6 shadow-lg rounded-lg" data-aos="fade-up">
+                        <h3 class="text-xl font-semibold mb-4">Desenvolvimento Integral</h3>
+                        <p>Foco no crescimento pessoal, acadêmico e profissional dos estudantes.</p>
                     </div>
-                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
-                        <div class="card h-100 hvr-grow">
-                            <div class="card-body">
-                                <h5 class="card-title">Planejamento de Carreira</h5>
-                                <p class="card-text">Aprenda a traçar metas e estratégias para alcançar seus objetivos profissionais.</p>
-                            </div>
-                        </div>
+                    <div class="card p-6 shadow-lg rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-xl font-semibold mb-4">Metodologia Inovadora</h3>
+                        <p>Abordagem prática e interativa que estimula o aprendizado ativo.</p>
                     </div>
-                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="600">
-                        <div class="card h-100 hvr-grow">
-                            <div class="card-body">
-                                <h5 class="card-title">Habilidades Socioemocionais</h5>
-                                <p class="card-text">Desenvolva competências essenciais para o sucesso pessoal e profissional.</p>
-                            </div>
-                        </div>
+                    <div class="card p-6 shadow-lg rounded-lg" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-xl font-semibold mb-4">Preparação para o Futuro</h3>
+                        <p>Desenvolvimento de habilidades essenciais para o mercado de trabalho do século XXI.</p>
+                    </div>
+                    <div class="card p-6 shadow-lg rounded-lg" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="text-xl font-semibold mb-4">Autoconhecimento</h3>
+                        <p>Estímulo à reflexão e ao autoconhecimento para tomadas de decisão mais conscientes.</p>
+                    </div>
+                    <div class="card p-6 shadow-lg rounded-lg" data-aos="fade-up" data-aos-delay="400">
+                        <h3 class="text-xl font-semibold mb-4">Networking</h3>
+                        <p>Oportunidades de conexão com profissionais e outros estudantes.</p>
+                    </div>
+                    <div class="card p-6 shadow-lg rounded-lg" data-aos="fade-up" data-aos-delay="500">
+                        <h3 class="text-xl font-semibold mb-4">Acompanhamento Personalizado</h3>
+                        <p>Suporte individualizado para maximizar o potencial de cada estudante.</p>
                     </div>
                 </div>
-                
-                <div class="testimonials mt-5">
-                    <h3 class="text-center mb-4" data-aos="fade-up">O que dizem sobre a OPEE</h3>
-                    <div class="swiper-container" data-aos="fade-up" data-aos-delay="200">
+
+                <div class="mt-16">
+                    <h3 class="text-2xl font-bold text-center mb-8">O que dizem sobre a OPEE</h3>
+                    <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <blockquote class="blockquote">
-                                    <p>"A metodologia OPEE transformou minha visão sobre meu futuro profissional."</p>
-                                    <footer class="blockquote-footer">Maria, 17 anos</footer>
+                                <blockquote class="text-center">
+                                    <p class="text-lg mb-4">"A metodologia OPEE transformou minha visão sobre meu futuro profissional. Agora me sinto mais preparado e confiante."</p>
+                                    <cite>- João Silva, estudante</cite>
                                 </blockquote>
                             </div>
                             <div class="swiper-slide">
-                                <blockquote class="blockquote">
-                                    <p>"Como educador, vejo o impacto positivo da OPEE no desenvolvimento dos alunos."</p>
-                                    <footer class="blockquote-footer">Prof. Carlos Silva</footer>
+                                <blockquote class="text-center">
+                                    <p class="text-lg mb-4">"Como educadora, vejo o impacto positivo que a OPEE tem no desenvolvimento dos alunos. É uma ferramenta valiosa."</p>
+                                    <cite>- Maria Santos, professora</cite>
+                                </blockquote>
+                            </div>
+                            <div class="swiper-slide">
+                                <blockquote class="text-center">
+                                    <p class="text-lg mb-4">"A OPEE está na vanguarda da educação, preparando os jovens para os desafios do futuro."</p>
+                                    <cite>- Dr. Carlos Oliveira, especialista em educação</cite>
                                 </blockquote>
                             </div>
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
                 </div>
-                
-                <div class="text-center mt-5">
-                    <button class="btn btn-lg btn-success hvr-pulse" id="saiba-mais-btn" data-aos="zoom-in">Saiba Mais</button>
+
+                <div class="text-center mt-12">
+                    <a href="#" class="btn btn-large waves-effect waves-light green darken-2 hvr-bounce-to-right" id="saiba-mais-btn">
+                        Saiba Mais
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Projeto Section -->
-        <section class="section" id="projeto">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-6" data-aos="fade-right">
-                        <h2 class="mb-4">Projeto de Doação de Roupas</h2>
-                        <p class="lead">
-                            A metodologia OPEE no Centro Educacional Juvenal De Carvalho está organizando um projeto de coleta de roupas para doação no Natal. Liderado pela professora Jéssica e a turma do 9º ano, este projeto demonstra o impacto prático da OPEE na comunidade.
+        <section id="projeto" class="py-16 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-wrap items-center">
+                    <div class="w-full md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
+                        <img src="doando-roupa.png" alt="Pessoa doando roupa" class="rounded-lg shadow-xl">
+                    </div>
+                    <div class="w-full md:w-1/2 md:pl-12" data-aos="fade-left">
+                        <h2 class="text-3xl font-bold mb-6">Projeto de Doação de Roupas</h2>
+                        <p class="text-lg mb-6">
+                            A metodologia OPEE no Centro Educacional Juvenal De Carvalho está organizando um projeto de coleta de roupas para doação no Natal. Liderado pela professora Jéssica e a turma do 9º ano, este projeto exemplifica como a OPEE inspira ações sociais e desenvolve a consciência cidadã nos estudantes.
                         </p>
-                        <a href="doando-roupa.png" data-lightbox="projeto" class="btn btn-outline-success mt-3">Ver Galeria</a>
-                    </div>
-                    <div class="col-md-6" data-aos="fade-left">
-                        <img src="doando-roupa.png" alt="Pessoa doando roupa" class="img-fluid rounded">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Números e Dados Section -->
-        <section class="section" id="numeros">
-            <div class="container">
-                <h2 class="text-center mb-5" data-aos="fade-up">Impacto da Metodologia OPEE</h2>
-                <div class="row">
-                    <div class="col-md-6" data-aos="fade-right">
-                        <div id="chart-container"></div>
-                    </div>
-                    <div class="col-md-6" data-aos="fade-left">
-                        <ul class="list-group">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Alunos Beneficiados
-                                <span class="badge bg-primary rounded-pill">300+</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Aprovação
-                                <span class="badge bg-success rounded-pill">300+</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Aumento na Participação dos Alunos
-                                <span class="badge bg-info rounded-pill">58%</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Projetos Realizados no CEJC
-                                <span class="badge bg-warning rounded-pill">7+</span>
-                            </li>
-                        </ul>
+                        <a href="#" class="btn btn-large waves-effect waves-light green darken-2" data-lity>
+                            Veja o Vídeo do Projeto
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- OPEE no CEJC Section -->
-        <section class="section" id="opee-cejc">
-            <div class="container">
-                <h2 class="text-center mb-5" data-aos="fade-up">OPEE no Centro Educacional Juvenal De Carvalho</h2>
-                <div class="row align-items-center">
-                    <div class="col-md-6" data-aos="fade-right">
-                        <p class="lead">
-                            A metodologia OPEE tem uma presença significativa no Centro Educacional Juvenal De Carvalho, desempenhando um papel crucial no desenvolvimento integral dos alunos. Através de uma abordagem inovadora, a OPEE:
+        <section id="numeros" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">OPEE em Números</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div id="alunos-beneficiados" class="text-4xl font-bold text-green-600 mb-2">300+</div>
+                        <p>Alunos Beneficiados</p>
+                    </div>
+                    <div class="text-center">
+                        <div id="aprovacao" class="text-4xl font-bold text-green-600 mb-2">300+</div>
+                        <p>Aprovação</p>
+                    </div>
+                    <div class="text-center">
+                        <div id="aumento-participacao" class="text-4xl font-bold text-green-600 mb-2">58%</div>
+                        <p>Aumento na Participação dos Alunos</p>
+                    </div>
+                    <div class="text-center">
+                        <div id="projetos-realizados" class="text-4xl font-bold text-green-600 mb-2">7+</div>
+                        <p>Projetos Realizados no CEJC</p>
+                    </div>
+                </div>
+                <div id="grafico-3d" class="mt-16 h-96"></div>
+            </div>
+        </section>
+
+        <section id="opee-cejc" class="py-16 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">OPEE no Centro Educacional Juvenal De Carvalho</h2>
+                <div class="flex flex-wrap items-center">
+                    <div class="w-full md:w-1/2 mb-8 md:mb-0">
+                        <div id="lottie-animation" class="w-full h-64"></div>
+                    </div>
+                    <div class="w-full md:w-1/2 md:pl-12">
+                        <p class="text-lg mb-6">
+                            A metodologia OPEE tem uma presença significativa no Centro Educacional Juvenal De Carvalho, desempenhando um papel crucial no desenvolvimento integral dos alunos. Através de uma abordagem inovadora, a OPEE não apenas auxilia os estudantes em seu percurso acadêmico, mas também os prepara para os desafios da vida.
                         </p>
-                        <ul class="list-group list-group-flush mt-3">
-                            <li class="list-group-item">Auxilia os alunos em seu crescimento pessoal e acadêmico</li>
-                            <li class="list-group-item">Promove valores essenciais para a formação cidadã</li>
-                            <li class="list-group-item">Oferece cursos e palestras enriquecedoras</li>
-                            <li class="list-group-item">Incentiva os alunos a sonhar e planejar seu futuro</li>
-                            <li class="list-group-item">Estimula a reflexão sobre questões importantes da vida</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6" data-aos="fade-left">
-                        <div id="lottie-container"></div>
+                        <p class="text-lg mb-6">
+                            Com uma série de atividades, cursos e palestras, a OPEE no CEJC fomenta valores essenciais, estimula a reflexão sobre a vida e ajuda as crianças a sonharem e planejarem seu futuro. Esta metodologia vai além do currículo tradicional, oferecendo ferramentas para o autoconhecimento, desenvolvimento de habilidades socioemocionais e preparação para o mercado de trabalho.
+                        </p>
+                        <p class="text-lg">
+                            O impacto da OPEE é visível no aumento do engajamento dos alunos, na melhoria do ambiente escolar e no fortalecimento da comunidade educativa como um todo. Pais, professores e alunos testemunham diariamente as transformações positivas proporcionadas por esta abordagem única e eficaz.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Blog Access Section -->
-        <section class="section" id="blog-access">
-            <div class="container text-center">
-                <h2 class="mb-4" data-aos="fade-up">Descubra Mais no Nosso Blog</h2>
-                <p class="lead mb-4" data-aos="fade-up" data-aos-delay="200">Fique por dentro das últimas novidades, dicas e histórias inspiradoras da metodologia OPEE.</p>
-                <a href="load.html" class="btn btn-lg btn-success hvr-bounce-to-right" data-aos="zoom-in" data-aos-delay="400">Acesse o Blog</a>
+        <section id="acesse-blog" class="py-16 bg-green-600 text-white text-center">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold mb-8">Descubra Mais no Nosso Blog</h2>
+                <p class="text-xl mb-12">Fique por dentro das últimas novidades, dicas e histórias inspiradoras da metodologia OPEE.</p>
+                <a href="load.html" class="btn btn-large waves-effect waves-light white green-text text-darken-2 hvr-float-shadow">
+                    Acesse o Blog
+                </a>
             </div>
         </section>
-    </div>
+    </main>
 
-    <!-- Particle.js Background -->
-    <div id="particles-js"></div>
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-between">
+                <div class="w-full md:w-1/4 mb-8 md:mb-0">
+                    <img src="opee-logo.png" alt="Logo OPEE" class="w-24 mb-4">
+                    <p>Transformando o futuro através da educação inovadora.</p>
+                </div>
+                <div class="w-full md:w-1/4 mb-8 md:mb-0">
+                    <h3 class="text-xl font-bold mb-4">Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#sobre" class="hover:text-green-300">Sobre</a></li>
+                        <li><a href="#como-funciona" class="hover:text-green-300">Como Funciona</a></li>
+                        <li><a href="#resultados" class="hover:text-green-300">Resultados</a></li>
+                        <li><a href="#contato" class="hover:text-green-300">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/4 mb-8 md:mb-0">
+                    <h3 class="text-xl font-bold mb-4">Contato</h3>
+                    <p>Email: contato@opee.com.br</p>
+                    <p>Telefone: (00) 1234-5678</p>
+                </div>
+                <div class="w-full md:w-1/4">
+                    <h3 class="text-xl font-bold mb-4">Siga-nos</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-green-300"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" class="text-white hover:text-green-300"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#" class="text-white hover:text-green-300"><i class="fab fa-twitter fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <p>&copy; 2023 Metodologia OPEE. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.6/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.12.0/headroom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.8/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.14/lottie.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.2.2/echarts.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.14/lottie.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
-    <!-- Custom JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
 </body>
-                          </html>
+                                </html>
