@@ -1,13 +1,22 @@
-/* Remove margens padrão e overflow */
+/* Estilização geral */
 body, html {
   margin: 0;
   padding: 0;
   overflow: hidden;
   font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
 }
 
-/* Estilização do conteúdo */
-.content {
+.loader-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -17,16 +26,15 @@ body, html {
   z-index: 10;
 }
 
-.content h1 {
-  font-size: 2.5rem;
+.loading-content h1 {
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
-.content p {
+.loading-content p {
   font-size: 1.2rem;
 }
 
-/* O canvas deve cobrir a tela */
 canvas {
   display: block;
   position: absolute;
