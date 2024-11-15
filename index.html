@@ -1,20 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OPEE - Tela de Inicialização</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Inicialização</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        #loading-screen {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #progress-text {
+            position: absolute;
+            bottom: 20px;
+            color: #fff;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
-  <div class="loader-container">
-    <canvas id="background"></canvas>
-    <div class="loading-content">
-      <h1>Bem-vindo à Metodologia OPEE</h1>
-      <p>Carregando... <span id="progress">0%</span></p>
+    <div id="loading-screen">
+        <canvas id="loading-canvas"></canvas>
+        <div id="progress-text">0%</div>
     </div>
-  </div>
-  
-  <script type="module" src="script.js"></script>
+
+    <script type="module">
+        // Importações ES6
+        import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.module.js';
+        import { EffectComposer } from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/jsm/postprocessing/EffectComposer.js';
+        import { RenderPass } from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/jsm/postprocessing/RenderPass.js';
+        import { UnrealBloomPass } from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/jsm/postprocessing/UnrealBloomPass.js';
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js';
+        import { getDatabase, ref, set, get } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js';
+
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyDzv828VQ5i5xO4Viw4rxFYerm8a7VNZas",
+            authDomain: "opeecejc.firebaseapp.com",
+            projectId: "opeecejc",
+            storageBucket: "opeecejc.firebasestorage.app",
+            messagingSenderId: "358334760830",
+            appId: "1:358334760830:web:2b56b2a752484e4a8ad52f",
+            measurementId: "G-29KB4FHZHN"
+        };
+
+        // Inicializar Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // Configuração da cena Three.js
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('loading-canvas'), antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        // Adicionar objetos à cena
+        const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+        const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
+        const torusKnot = new THREE.Mesh(geometry, material);
+        scene.add(torusKnot);
+
+        // Iluminação
+        const light = new THREE.PointLight(0xffffff, 1, 100);
+        light.position.set(0, 0, 10);
+        scene.add(light);
+
+        // Posição da câmera
+        camera.position.z = 30;
+
+        // Configurar EffectComposer para efeitos de pós-processamento
+        const composer = new EffectComposer(renderer);
+        const renderPass = new RenderPass(scene, camera);
+        composer.addPass(renderPass);
+
+        const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
+        composer.addPass(bloomPass);
+
+        // Função de animação
+        function animate() {
+            requestAnimationFrame(animate);
+            torusKnot.rotation.x += 0.01;
+            torusKnot.rotation.y += 0.01;
+            composer.render();
+        }
+
+        // Iniciar animação
+        animate();
+
+        // Função para obter o IP do usuário
+        async function getIP() {
+            const response = await fetch('https://api.ipify.org?format=json');
+            const data = await response.json();
+            return data.ip;
+        }
+
+        // Função para verificar e registrar o IP no Firebase
+        async function checkAndRegisterIP(ip) {
+            const ipRef = ref(database, 'ips/' + ip.replace(/\./g, '_'));
+            const snapshot = await get(ipRef);
+            if (!snapshot.exists()) {
+                await set(ipRef, {
+                    lastVisit: new Date().toISOString()
+                });
+            }
+        }
+
+        // Função de carregamento
+        async function load() {
+            const startTime = Date.now();
+            const duration = 6000; // 6 segundos
+            const progressElement = document.getElementById('progress-text');
+
+            // Obter IP e verificar/registrar no Firebase
+            const ip = await getIP();
+            await checkAndRegisterIP(ip);
+
+            while (Date.now() - startTime < duration) {
+                const progress = Math.min(100, Math.floor(((Date.now() - startTime) / duration) * 100));
+                progressElement.textContent = `${progress}%`;
+                await new Promise(resolve => setTimeout(resolve, 50));
+            }
+
+            // Redirecionar para home.html após o carregamento
+            window.location.href = 'home.html';
+        }
+
+        // Iniciar o carregamento
+        load();
+    </script>
 </body>
 </html>
